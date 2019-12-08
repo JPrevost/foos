@@ -53,12 +53,12 @@ class Plugin(IOBase):
 
         self.ok_button_pin = config.io_raspberry_pins["ok_button"]
 
-        self.goal_pin_yellow = config.io_raspberry_pins["yellow_plus"]
-        # self.yellow_plus_pin = config.io_raspberry_pins["yellow_plus"]
+        self.goal_pin_yellow = config.io_raspberry_pins["yellow_goal"]
+        self.yellow_plus_pin = config.io_raspberry_pins["yellow_plus"]
         self.yellow_minus_pin = config.io_raspberry_pins["yellow_minus"]
 
-        self.goal_pin_black = config.io_raspberry_pins["black_plus"]
-        # self.black_plus_pin = config.io_raspberry_pins["black_plus"]
+        self.goal_pin_black = config.io_raspberry_pins["black_goal"]
+        self.black_plus_pin = config.io_raspberry_pins["black_plus"]
         self.black_minus_pin = config.io_raspberry_pins["black_minus"]
 
         self.goal_detector_black = Button(bus, self.goal_pin_black, "black", 1)
@@ -70,6 +70,12 @@ class Plugin(IOBase):
 
         self.black_minus_button = Button(bus, self.black_minus_pin,
                                          'black_minus', 0)
+
+        self.black_plus_button = Button(bus, self.black_plus_pin,
+                                         'black_plus', 0)
+
+        self.yellow_plus_button = Button(bus, self.yellow_plus_pin,
+                                         'yellow_plus', 0)
 
         self.ok_button = Button(bus, self.ok_button_pin, 'ok', 0)
 
